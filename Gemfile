@@ -47,14 +47,16 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# bootstrap
+gem "twitter-bootstrap-rails"
+
 # slackAPI
 gem 'slack-api'
-
-# bootstrap
-gem 'bootstrap'
 
 # postgresql
 gem 'pg'
 
 # APItokenを隠すため
 gem 'dotenv-rails'
+
+gem 'bootstrap_form'

@@ -25,16 +25,12 @@ class OpinionsController < ApplicationController
   # POST /opinions.json
   def create
     @opinion = Opinion.new(opinion_params)
-
-    respond_to do |format|
-      if @opinion.save
-        notify_to_slack
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
-        format.json { render :show, status: :created, location: @opinion }
-      else
-        format.html { render :new }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
-      end
+    if @opinion.save
+      notify_to_slack
+      flash[:success] = "送信完了しました。"
+      redirect_to '/'
+    else
+      render :new
     end
   end
 
